@@ -21,7 +21,7 @@ body{
     text-align:center;
 }
 header{
-    height:20vh;
+    height:15vh;
     width:100%;
     display:flex;
     justify-content: center;
@@ -30,7 +30,7 @@ header{
 h1{
     text-align:center;
     font-family: "Updock";
-    font-size: 6em;
+    font-size: 5em;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     background:linear-gradient(rgba(163, 2, 11,0.9),rgba(255, 56, 26,0.9));
     padding: 0.2em;
@@ -52,13 +52,26 @@ button{
     border-radius: 30px;
     margin: 5%;
 }
-
+main{
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items:center;
+}
 section{
-    margin: 5% 25%;
+    margin: 1%;
     display:flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
+article{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
 .department{
     display:flex;
@@ -72,49 +85,41 @@ section{
     font-size: 1em;
     text-align:center;
 }
-
-article{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-}
-
 .description{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: flex-start;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
     background: silver;
-    width:500px;
+    width:450px;
     padding: 0.5em;
     margin:0.5em;
     border: 0.75em solid black;
     box-shadow: inset 0 0 20px 5px rgba(0,0,0,0.6);
 }
 .frame{
-    margin-top: -15%;
-    background: url('images/frame.png') center no-repeat;
-    background-size: contain;
-    width: 650px;
-    height: 750px;
+    border-image: url('images/frame.png');
+    border-style:inset;
+    border-width: 30px;
+    border-image-slice: 15%;
+    border-image-outset: 5px;
+    border-image-width: 30px;
+    border-image-repeat:stretch;
+    box-shadow: inset 0 0 20px 10px rgba(0,0,0,0.6);
+    max-width: 50vw;
+    max-height: 60vh;
 }
 .frame img{
-    display:block;
-    position:relative;
-    left:19%;
-    box-shadow: inset 0 0 20px 10px rgba(0,0,0,0.6);
-    margin-top: 11%;
-    width: 406px;
-    height: 605px;
+    max-width: 45vw;
+    max-height: 53vh;
 }
 .left, .right{
     background: rgba(255,255,255,0.3);
     border: 1px solid rgba(255,255,255,0.3);
     border-radius: 50%;
-    font-size: 5em;
+    font-size: 4em;
     font-weight: bold;
     box-shadow: 0.2em 0.2em 0.2em rgba(0,0,0,0.1);
     color:rgba(0,0,0,0.3);
@@ -123,65 +128,36 @@ article{
     padding:0.2em;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.browse{
-    width:100%;
-    height:100vh;
-    display:flex;
-    flex-direction:row;
-    justify-content: space-between;
-    align-items:flex-start;
-}
-.left{
-    position: absolute;
-    top: 40%;
-    right: 75%;
-}
-.right{
-    position: absolute;
-    top: 40%;
-    left: 75%;
-}
-@media all and (max-width:600px){
+
+@media all and (max-width:800px){
     h1{
         font-size: calc(4vh + 1em);
-        padding-top: 4vh;
+        padding-top: 3vh;
     }
     button{
         font-size: calc(2vh + 1em);
     }
 
     .frame{
-        margin: 1em;
-        width:85vw;
-        height:450px;
+        /* margin: 1em; */
+        max-width:74vw;
         text-align: center;
     }
     .frame img{
-        width: 62vw;
-        height:365px;
-        left:14%;
-        top:1%;
+        max-width: 59vw;
     }
     .description{
         width: 75vw;
         font-size: calc(1vh + 1em);
     }
     .left,.right{
-        margin:0;
-        padding:0;
-        top: 45%;
         font-size: 2em;
         width: 2em;
         height: 2em;
-        padding: 0.4em;
+        padding:0.4em;
     }
-    .left{
-        right: 82%;
+    .description{
+        width: 70vw;
+        font-size: 1em;
     }
-    .right{
-        left: 82%;
-    }
-
-
-
 }
