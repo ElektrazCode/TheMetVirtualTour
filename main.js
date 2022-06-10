@@ -49,6 +49,7 @@ function getPiece(list){
     fetch(pieceUrl + objectId)
         .then((res)=>res.json())
         .then((data)=>{
+
             const piece = document.createElement('article');
             piece.className = 'piece';
             piece.setAttribute('id', objectId);
@@ -64,10 +65,12 @@ function getPiece(list){
             const description = document.createElement('div');
             description.className = 'description';
             piece.append(description);
-            image.src = data.primaryImage;
-            description.innerText = `${data.title}\n${data.objectDate}\n${data.culture}`
             
-            
+            if(data.primaryImage==="" || data.primaryImage==="unknown")
+                image.src = "images/unavailable.jpg";
+            else
+                image.src = data.primaryImage;
+            description.innerText = `${data.title}\n${data.objectDate}\n${data.culture}`;
         })
         .catch((e)=> console.log(e));
 }
@@ -90,8 +93,10 @@ function updatePiece(){
     fetch(pieceUrl + objectId)
     .then((res)=>res.json())
     .then((data)=>{
-        
-        document.querySelector('.frame img').src = data.primaryImage;
+        if(data.primaryImage==="" || data.primaryImage==="unknown")
+            document.querySelector('.frame img').src = "images/unavailable.jpg";
+            else
+            document.querySelector('.frame img').src = data.primaryImage;
         document.querySelector('.description').innerText = `${data.title}\n${data.objectDate}\n${data.culture}`
         
         
